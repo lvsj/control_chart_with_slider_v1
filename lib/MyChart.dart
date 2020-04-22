@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
-import 'package:provider/provider.dart'; // ? **********
 
-class Chart extends StatefulWidget {
+class MyChart extends StatefulWidget {
   @override
-  _ChartState createState() => _ChartState();
+  _MyChartState createState() => _MyChartState();
 }
 
-class _ChartState extends State<Chart> {
-  bool toggle = false;
+class _MyChartState extends State<MyChart> {
   Map<String, double> dataMap = Map();
   List<Color> colorList = [
     Colors.red,
@@ -20,10 +18,10 @@ class _ChartState extends State<Chart> {
   @override
   void initState() {
     super.initState();
-    dataMap.putIfAbsent("Flutter", () => 5);
-    dataMap.putIfAbsent("React", () => 3);
-    dataMap.putIfAbsent("Xamarin", () => 2);
-    dataMap.putIfAbsent("Ionic", () => 2);
+    dataMap.putIfAbsent("Flutter", () => 0.1);
+    dataMap.putIfAbsent("React", () => 0.1);
+    dataMap.putIfAbsent("Xamarin", () => 0.1);
+    dataMap.putIfAbsent("Ionic", () => 0.1);
   }
 
   @override
@@ -31,7 +29,6 @@ class _ChartState extends State<Chart> {
     return PieChart(
       dataMap: dataMap,
       chartRadius: MediaQuery.of(context).size.width / 1.5,
-      chartValueBackgroundColor: Colors.grey[200],
       showLegends: false,
       colorList: colorList,
     );

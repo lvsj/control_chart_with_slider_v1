@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:magic_8_ball/Slider.dart';
-import 'Chart.dart';
+import 'MyChart.dart';
+import 'MySlider.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -13,16 +13,17 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.blueGrey,
-        appBar: AppBar(),
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: Center(child: Text('Change Piechart Dynamically'),),
+        ),
         body: Column(
           children: <Widget>[
             Expanded(
-              child: Chart(),
+              child: MyChart(),
             ),
             Expanded(
-              child: NewSlider(value: 0.8,onChanged: (value){
-              },),
+              child: MySlider(),
             )
           ],
         ),
